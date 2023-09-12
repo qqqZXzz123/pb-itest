@@ -25,7 +25,10 @@ RUN apt-get update \
     libmysqlclient-dev \
     python3 \
     python3-pip\
-    && useradd -d /home/container -m container
+    gnupg \
+    build-essential \
+    iproute2 \
+    && pwd
 
 RUN curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
     && unzip byond.zip \
@@ -52,15 +55,3 @@ RUN ln -fs /usr/share/zoneinfo/US/Pacific-New /etc/localtime && \
 #RUN pip3 install requests Pillow
 RUN pip3 install --upgrade pip
 RUN pip3 install requests Pillow
-
-
-
-
-USER        container
-ENV         USER=container HOME=/home/container
-
-WORKDIR     /home/container
-
-COPY        ./entrypoint.sh /entrypoint.sh
-
-CMD         ["/bin/bash", "/entrypoint.sh"]
