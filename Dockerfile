@@ -140,3 +140,6 @@ RUN apt install zlib1g-dev libjpeg-dev libpng-dev zlib1g
 
 RUN python3 -m pip install --upgrade pip==20.3
 RUN python3 -m pip install --upgrade Pillow
+
+RUN apt-get update
+RUN apt-get install libc6
