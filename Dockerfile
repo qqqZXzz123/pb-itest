@@ -149,9 +149,9 @@ RUN python3 -m pip install --upgrade Pillow
 COPY glibc-2.28.tar.gz .
 
 RUN apt-get install gawk bison -y \
-tar –xf glibc-2.28.tar.gz && cd glibc-2.28 \
-mkdir glibc-build && cd glibc-build \
-../configure --prefix=/opt/glibc-2.34 \
-make  \
-make install
+&& tar -zxvf glibc-2.28.tar.gz && cd glibc-2.28 \
+&& mkdir glibc-build && cd glibc-build \
+&& ../configure --prefix=/opt/glibc-2.34 \
+&& make  \
+&& make install
 
