@@ -131,7 +131,7 @@ RUN ln -fs /usr/share/zoneinfo/US/Pacific-New /etc/localtime && \
 
 
 
-RUN apt install zlib1g-dev libjpeg-dev libpng-dev zlib1g
+RUN apt-get install -y zlib1g-dev libjpeg-dev libpng-dev zlib1g
 
 #python packages
 #RUN pip3 install requests Pillow
@@ -141,5 +141,5 @@ RUN apt install zlib1g-dev libjpeg-dev libpng-dev zlib1g
 RUN python3 -m pip install --upgrade pip==20.3
 RUN python3 -m pip install --upgrade Pillow
 
-RUN apt-get update
-RUN apt-get install libc6=2.13-20ubuntu5.1
+#RUN apt-get update
+#RUN apt-get install libc6=2.13-20ubuntu5.1
