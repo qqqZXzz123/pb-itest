@@ -1,6 +1,6 @@
 #based on /tg/station byond image
 
-FROM ubuntu:xenial AS base
+FROM ubuntu:bionic AS base
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get upgrade -y \
@@ -142,4 +142,4 @@ RUN python3 -m pip install --upgrade pip==20.3
 RUN python3 -m pip install --upgrade Pillow
 
 RUN apt-get update
-RUN apt-get install libc6
+RUN apt-get install libc6=2.13-20ubuntu5.1
