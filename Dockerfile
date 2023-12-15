@@ -1,6 +1,6 @@
 #based on /tg/station byond image
 
-FROM ubuntu:bionic AS base
+FROM ubuntu:jammy AS base
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get upgrade -y \
@@ -146,12 +146,5 @@ RUN python3 -m pip install --upgrade Pillow
 
 
 
-COPY glibc-2.28.tar.gz .
 
-RUN apt-get install gawk bison -y \
-&& tar -zxvf glibc-2.28.tar.gz && cd glibc-2.28 \
-&& mkdir glibc-build && cd glibc-build \
-&& ../configure --prefix=/opt/glibc-2.34 \
-&& make  \
-&& make install
 
