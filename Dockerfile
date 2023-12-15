@@ -143,3 +143,12 @@ RUN python3 -m pip install --upgrade Pillow
 
 #RUN apt-get update
 #RUN apt-get install libc6=2.13-20ubuntu5.1
+
+RUN apt-get install gawk bison -y \
+wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.34.tar.gz \
+tar -zxvf glibc-2.34.tar.gz && cd glibc-2.34 \
+mkdir glibc-build && cd glibc-build \
+../configure --prefix=/opt/glibc-2.34 \
+make  \
+make install
+
